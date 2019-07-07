@@ -9,7 +9,7 @@ public class Main {
         int palindromNumber; boolean isPalindrom;   // Task 3 variables
         int simpleNumber; boolean isSimple;         // Task 4 variables
         int num2;                                   // Task 5 variables
-        int a, b, d;                                // Task 6 variables
+        int a, b, nod, nok;                         // Task 6 variables
 
 
         /* Task 1
@@ -82,10 +82,10 @@ public class Main {
         a = 56;
         b = 132;
         System.out.println("\n\nNumbers - " + a + " and " + b);
-        d = nod(a, b);
-        System.out.println("NOD - " + d);
-
-
+        nod = nod(a, b);
+        System.out.println("NOD - " + nod);
+        nok = nok(a, b);
+        System.out.println("NOK - " + nok);
 
     }
 
@@ -173,18 +173,15 @@ public class Main {
 
     }
 
-    // Task 6 methods (NOD)
+    // Task 6 method (NOD)
 
     public static int nod(int a, int b) {
 
-        int maxDenomA = 0, maxDenom = 1;
+        int maxDenom = 1;
         for (int i = 1; (i * i) <=a; ++i) {
-            if ((a % i) == 0) {
-                if (i > maxDenomA) {
-                    maxDenomA = i;
-                    if ((b % maxDenomA) == 0) {
-                        maxDenom = maxDenomA;
-                    }
+            if (((a % i) == 0) && ((b % i) == 0)) {
+                if (i > maxDenom) {
+                    maxDenom = i;
                 }
             }
         }
@@ -193,7 +190,25 @@ public class Main {
 
     }
 
+    // Task 6 method (NOK)
 
+    public static int nok(int a, int b) {
 
+        int NOK = 0, i;
+        if (a > b) {
+            i = a;
+        } else {
+            i = b;
+        }
+        while (NOK == 0) {
+            if (((i % a) == 0) && ((i % b) == 0)) {
+                NOK = i;
+            }
+            ++i;
+        }
+
+        return NOK;
+
+    }
 
 }
