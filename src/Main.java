@@ -8,6 +8,7 @@ public class Main {
         int maxNumeral, num;                        // Task 2 variables
         int palindromNumber; boolean isPalindrom;   // Task 3 variables
         int simpleNumber; boolean isSimple;         // Task 4 variables
+        int num2;                                   // Task 5 variables
 
 
         /* Task 1
@@ -55,7 +56,7 @@ public class Main {
          * Simple or not
          */
 
-        simpleNumber = 3;
+        simpleNumber = 1;
         isSimple = simpleNumCheck(simpleNumber);
         System.out.println("\nNumber - " + simpleNumber);
         if (isSimple) {
@@ -63,6 +64,14 @@ public class Main {
         } else {
             System.out.println("Not simple number");
         }
+
+        /* Task 5
+         * All simple denominators
+         */
+
+        num2 = 598;
+        System.out.println("\nNumber - " + num2 + "\n");
+        simpleDenom(num2);
 
     }
 
@@ -131,6 +140,22 @@ public class Main {
         }
 
         return true;
+
+    }
+
+    // Task 5 method
+
+    public static void simpleDenom(int num) {
+
+        boolean isSimple;
+        for (int i = 1; i <= num; ++i) {
+            if ((num % i) == 0) {
+                isSimple = simpleNumCheck(i);
+                if (isSimple) {
+                    System.out.print(i + " ");
+                }
+            }
+        }
 
     }
 
