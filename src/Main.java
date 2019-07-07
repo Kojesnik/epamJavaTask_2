@@ -9,6 +9,7 @@ public class Main {
         int palindromNumber; boolean isPalindrom;   // Task 3 variables
         int simpleNumber; boolean isSimple;         // Task 4 variables
         int num2;                                   // Task 5 variables
+        int a, b, d;                                // Task 6 variables
 
 
         /* Task 1
@@ -70,8 +71,21 @@ public class Main {
          */
 
         num2 = 598;
-        System.out.println("\nNumber - " + num2 + "\n");
+        System.out.println("\nNumber - " + num2);
+        System.out.println("All simple denominators: ");
         simpleDenom(num2);
+
+        /* Task 6
+         * NOD and NOK
+         */
+
+        a = 56;
+        b = 132;
+        System.out.println("\n\nNumbers - " + a + " and " + b);
+        d = nod(a, b);
+        System.out.println("NOD - " + d);
+
+
 
     }
 
@@ -158,6 +172,28 @@ public class Main {
         }
 
     }
+
+    // Task 6 methods (NOD)
+
+    public static int nod(int a, int b) {
+
+        int maxDenomA = 0, maxDenom = 1;
+        for (int i = 1; (i * i) <=a; ++i) {
+            if ((a % i) == 0) {
+                if (i > maxDenomA) {
+                    maxDenomA = i;
+                    if ((b % maxDenomA) == 0) {
+                        maxDenom = maxDenomA;
+                    }
+                }
+            }
+        }
+
+        return maxDenom;
+
+    }
+
+
 
 
 }
