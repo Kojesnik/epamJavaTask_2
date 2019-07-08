@@ -10,6 +10,7 @@ public class Main {
         int simpleNumber; boolean isSimple;         // Task 4 variables
         int num2;                                   // Task 5 variables
         int a, b, nod, nok;                         // Task 6 variables
+        int num3;                                   // Task 7 variables
 
 
         /* Task 1
@@ -86,6 +87,15 @@ public class Main {
         System.out.println("NOD - " + nod);
         nok = nok(a, b);
         System.out.println("NOK - " + nok);
+
+        /* Task 7
+         * Amount of different numerals
+         */
+
+        num3 = 1234445;
+        System.out.println("\nNumber - " + num3);
+        System.out.println("Amount of different numerals - " + differntNums(num3));
+
 
     }
 
@@ -208,6 +218,47 @@ public class Main {
         }
 
         return NOK;
+
+    }
+
+    // Task 7 ADDITIONAL method
+
+    public static boolean isDifferent(int numeralToCheck, String otherNumerals) {
+
+        int numerals = Integer.valueOf(otherNumerals);
+        while (numerals != 0) {
+            if ((numerals % 10) == numeralToCheck) {
+                return false;
+            }
+            numerals /= 10;
+        }
+
+        return true;
+
+    }
+
+    // Task 7 method
+
+    public static int differntNums(int numToCheck) {
+
+        int amount = 1, numeral;
+        boolean isDiff;
+        String allNumerals = "";
+        while (numToCheck != 0) {
+            numeral = numToCheck % 10;
+            if (allNumerals.equals("")) {
+                allNumerals += numeral;
+            } else {
+                isDiff = isDifferent(numeral, allNumerals);
+                if (isDiff) {
+                    ++amount;
+                    allNumerals += numeral;
+                }
+            }
+            numToCheck /= 10;
+        }
+
+        return amount;
 
     }
 
