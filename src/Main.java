@@ -1,6 +1,6 @@
 import java.util.Random;
 
-public class Main {
+public class Main{
 
     public static void main(String[] args) {
 
@@ -37,7 +37,7 @@ public class Main {
          */
 
         num = random.nextInt();
-        if (num < 0) {
+        if (num <= 0) {
             num = Math.abs(num);
         }
         System.out.println("\nRandom number - " + num);
@@ -49,6 +49,9 @@ public class Main {
          */
 
         palindromNumber = 404;
+        if (palindromNumber <= 0) {
+            System.out.println("Not natural number");
+        }
         isPalindrom = palindromCheck(palindromNumber);
         System.out.println("\nNumber - " + palindromNumber);
         if (isPalindrom) {
@@ -62,6 +65,9 @@ public class Main {
          */
 
         simpleNumber = 21;
+        if (simpleNumber <= 0) {
+            System.out.println("Not natural number");
+        }
         isSimple = simpleNumCheck(simpleNumber);
         System.out.println("\nNumber - " + simpleNumber);
         if (isSimple) {
@@ -75,6 +81,9 @@ public class Main {
          */
 
         num2 = 598;
+        if (num2 <= 0) {
+            System.out.println("Not natural number");
+        }
         System.out.println("\nNumber - " + num2);
         System.out.println("All simple denominators: ");
         simpleDenom(num2);
@@ -85,6 +94,9 @@ public class Main {
 
         a = 56;
         b = 132;
+        if ((a <= 0) || (b <= 0)) {
+            System.out.println("Not natural number");
+        }
         System.out.println("\n\nNumbers - " + a + " and " + b);
         nod = nod(a, b);
         System.out.println("NOD - " + nod);
@@ -96,6 +108,9 @@ public class Main {
          */
 
         num3 = 1234445;
+        if (num3 <= 0) {
+            System.out.println("Not natural number");
+        }
         System.out.println("\nNumber - " + num3);
         System.out.println("Amount of different numerals - " + differntNums(num3));
 
@@ -104,6 +119,9 @@ public class Main {
          */
 
         num4 = 8128;
+        if (num4 <= 0) {
+            System.out.println("Not natural number");
+        }
         System.out.println("\nNumber - " + num4);
         isPerfect = isPerfect(num4);
         if (isPerfect) {
@@ -118,6 +136,11 @@ public class Main {
 
         leftNum = 200;
         rightNum = 3000;
+        if ((leftNum < 0) || (rightNum <= 0)){
+            System.out.println("Range cant be < 0");
+        } else if (leftNum >= rightNum) {
+            System.out.println("Wrong range");
+        }
         System.out.println("\nRange  " + leftNum + " - " + rightNum);
         System.out.println("All friendly nums in this range:");
         allFriendlyNums(leftNum, rightNum);
