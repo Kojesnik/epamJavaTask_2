@@ -11,12 +11,14 @@ public class Main {
         int num2;                                   // Task 5 variables
         int a, b, nod, nok;                         // Task 6 variables
         int num3;                                   // Task 7 variables
+        int num4; boolean isPerfect;                // Task 8 variables
 
 
         /* Task 1
          * "Heads or Tails"
          * 0 - orel
-         * 1 - reshka */
+         * 1 - reshka
+         */
 
         Random random = new Random();
         for (int i = 0; i < 100; ++i) {
@@ -58,7 +60,7 @@ public class Main {
          * Simple or not
          */
 
-        simpleNumber = 1;
+        simpleNumber = 21;
         isSimple = simpleNumCheck(simpleNumber);
         System.out.println("\nNumber - " + simpleNumber);
         if (isSimple) {
@@ -95,6 +97,19 @@ public class Main {
         num3 = 1234445;
         System.out.println("\nNumber - " + num3);
         System.out.println("Amount of different numerals - " + differntNums(num3));
+
+        /* Task 8
+         * Perfect number or not
+         */
+
+        num4 = 8128;
+        System.out.println("\nNumber - " + num4);
+        isPerfect = isPerfect(num4);
+        if (isPerfect) {
+            System.out.println("Number is perfect");
+        } else {
+            System.out.println("Number is not perfect");
+        }
 
 
     }
@@ -259,6 +274,22 @@ public class Main {
         }
 
         return amount;
+
+    }
+
+    public static boolean isPerfect(int numToCheck) {
+
+        int denomSum = 0;
+        for (int i = 1; i < numToCheck; ++i) {
+            if ((numToCheck % i) == 0) {
+                denomSum += i;
+            }
+        }
+        if (denomSum == numToCheck) {
+            return true;
+        } else {
+            return false;
+        }
 
     }
 
