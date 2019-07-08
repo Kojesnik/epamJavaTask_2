@@ -12,6 +12,7 @@ public class Main {
         int a, b, nod, nok;                         // Task 6 variables
         int num3;                                   // Task 7 variables
         int num4; boolean isPerfect;                // Task 8 variables
+        int leftNum, rightNum;                      // Task 9 variables
 
 
         /* Task 1
@@ -110,6 +111,16 @@ public class Main {
         } else {
             System.out.println("Number is not perfect");
         }
+
+        /* Task 9
+         * All friendly numbers
+         */
+
+        leftNum = 200;
+        rightNum = 3000;
+        System.out.println("\nRange  " + leftNum + " - " + rightNum);
+        System.out.println("All friendly nums in this range:");
+        allFriendlyNums(leftNum, rightNum);
 
 
     }
@@ -277,6 +288,8 @@ public class Main {
 
     }
 
+    // Task 8 method
+
     public static boolean isPerfect(int numToCheck) {
 
         int denomSum = 0;
@@ -289,6 +302,44 @@ public class Main {
             return true;
         } else {
             return false;
+        }
+
+    }
+
+    // Task 9 methods
+
+    public static boolean isFriendly(int num1, int num2) {
+
+        int denomSum1 = 0, denomSum2 = 0;
+        if (num1 == num2) {
+            return false;
+        }
+        for (int i = 1; i <= (num1 / 2); ++i) {
+            if((num1 % i) == 0) {
+                denomSum1 += i;
+            }
+        }
+        for (int j = 1; j <= (num2 / 2); ++j) {
+            if((num2 % j) == 0) {
+                denomSum2 += j;
+            }
+        }
+        if ((denomSum1 == num2) && (denomSum2 == num1)) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+
+    public static void allFriendlyNums(int leftNum, int rightNum) {
+
+        for (int i = leftNum; i <= rightNum; ++i) {
+            for (int j = (i + 1); j <= rightNum; ++j) {
+                if (isFriendly(i, j)) {
+                    System.out.println("Number " + i + " and " + j);
+                }
+            }
         }
 
     }
