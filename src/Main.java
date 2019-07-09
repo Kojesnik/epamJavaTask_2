@@ -331,35 +331,27 @@ public class Main{
 
     // Task 9 methods
 
-    public static boolean isFriendly(int num1, int num2) {
+    public static int denomSum(int num) {
 
-        int denomSum1 = 0, denomSum2 = 0;
-        if (num1 == num2) {
-            return false;
-        }
-        for (int i = 1; i <= (num1 / 2); ++i) {
-            if((num1 % i) == 0) {
-                denomSum1 += i;
+        int sum = 0;
+        for (int i = 1; i <= (num / 2); ++i) {
+            if ((num % i) == 0) {
+                sum += i;
             }
         }
-        for (int j = 1; j <= (num2 / 2); ++j) {
-            if((num2 % j) == 0) {
-                denomSum2 += j;
-            }
-        }
-        if ((denomSum1 == num2) && (denomSum2 == num1)) {
-            return true;
-        } else {
-            return false;
-        }
+
+        return sum;
 
     }
 
     public static void allFriendlyNums(int leftNum, int rightNum) {
 
+        int denomSum1 = 0, denomSum2 = 0;
         for (int i = leftNum; i <= rightNum; ++i) {
+            denomSum1 = denomSum(i);
             for (int j = (i + 1); j <= rightNum; ++j) {
-                if (isFriendly(i, j)) {
+                denomSum2 = denomSum(j);
+                if ((denomSum1 == j) && (denomSum2 == i)) {
                     System.out.println("Number " + i + " and " + j);
                 }
             }
