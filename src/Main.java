@@ -346,7 +346,7 @@ public class Main{
 
     public static void allFriendlyNums(int leftNum, int rightNum) {
 
-        int denomSum1 = 0, denomSum2 = 0;
+        int denomSum1, denomSum2;
         for (int i = leftNum; i <= rightNum; ++i) {
             denomSum1 = denomSum(i);
             for (int j = (i + 1); j <= rightNum; ++j) {
